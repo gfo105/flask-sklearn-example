@@ -7,7 +7,7 @@ on:
 jobs:
   build-api:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - uses: actions/checkout@v2
       - uses: psf/black@stable
       - name: Login to DockerHub
@@ -20,7 +20,7 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/flask-sklearn-example:latest
-       - name: Slack Notification
+      - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
